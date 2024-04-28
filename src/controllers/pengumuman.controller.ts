@@ -2,7 +2,7 @@ import { createPengumumanUseCase, getPengumumanAllUseCase, getPengumumanByIdUseC
 import { successResponse, errorResponse } from "../utils/response";
 import { Request, Response } from "express";
 
-export async function getPengumumanAllController(req: any, res: any){
+export async function getPengumumanAllController(res: Response){
     try {
         const result = await getPengumumanAllUseCase();
         successResponse(res, 'berhasil cok', result);
@@ -14,7 +14,7 @@ export async function getPengumumanAllController(req: any, res: any){
     }
 }
 
-export async function getPengumumanByIdController(req: any, res: any){
+export async function getPengumumanByIdController(req: Request, res: Response){
 
     const { id } = req.params;
 
@@ -33,7 +33,7 @@ export async function getPengumumanByIdController(req: any, res: any){
     }
 }
 
-export async function createPengumumanController(req: any, res: any){
+export async function createPengumumanController(req: Request, res: Response){
 
     const pengumumanData = req.body;
 
