@@ -1,5 +1,6 @@
-import { getPengumumanAllUseCase, getPengumumanByIdUseCase } from "../use-cases/pengumuman.use-case";
+import { createPengumumanUseCase, getPengumumanAllUseCase, getPengumumanByIdUseCase } from "../use-cases/pengumuman.use-case";
 import { successResponse, errorResponse } from "../utils/response";
+import { Request, Response } from "express";
 
 export async function getPengumumanAllController(req: any, res: any){
     try {
@@ -20,10 +21,46 @@ export async function getPengumumanByIdController(req: any, res: any){
     if(!id){
         return errorResponse(res, 400, 'ID tidak diberikan!')
     }
-    
+
     try {
         const result = await getPengumumanByIdUseCase(id);
         successResponse(res, 'berhasil cok', result);
+        return;
+    }
+    catch(error: any){
+        errorResponse(res, 400, error.message);
+        return;
+    }
+}
+
+export async function createPengumumanController(req: any, res: any){
+
+    const pengumumanData = req.body;
+    console.log(req.body)
+    console.log(pengumumanData);
+    
+    if(!pengumumanData.title){
+        return errorResponse(res, 400, 'Judul tidak diberikan!')
+    }
+    if(!pengumumanData.date){
+        return errorResponse(res, 400, 'Tanggal tidak diberikan!')
+    }
+    if(!pengumumanData.author){
+        return errorResponse(res, 400, 'Author tidak diberikan!')
+    }
+    if(!pengumumanData.tag){
+        return errorResponse(res, 400, 'Tag tidak diberikan!')
+    }
+    if(!pengumumanData.content.photo){
+        return errorResponse(res, 400, 'Photo tidak diberikan!')
+    }
+    if(!pengumumanData.content.text){
+        return errorResponse(res, 400, 'Text tidak diberikan!')
+    }
+    
+    try {
+        await createPengumumanUseCase(pengumumanData);
+        successResponse(res, 'berhasil cok', null);
         return;
     }
     catch(error: any){

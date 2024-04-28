@@ -32,3 +32,19 @@ export const getPengumumanById = async (id: string): Promise<any> => {
         await closeDatabaseConnection();
     }
 }
+
+export const createPengumuman = async (pengumumanData: any): Promise<any> => {
+
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection("Pengumuman");
+
+        console.log(pengumumanData);
+        await collection.insertOne(pengumumanData);
+
+    } catch (error) {
+        throw error;
+    } finally {
+        await closeDatabaseConnection();
+    }
+}

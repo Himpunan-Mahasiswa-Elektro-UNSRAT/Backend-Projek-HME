@@ -1,4 +1,4 @@
-import { getPengumumanAll, getPengumumanById } from "../repositories/pengumuman.repository";
+import { createPengumuman, getPengumumanAll, getPengumumanById } from "../repositories/pengumuman.repository";
 
 export const getPengumumanAllUseCase = async () => {
 
@@ -21,6 +21,14 @@ export const getPengumumanByIdUseCase = async (id: string) => {
             throw new Error('ID tidak ditemukan!');
         }
         return result;
+    } catch (error: any) {
+        throw error;
+    }
+}
+
+export const createPengumumanUseCase = async (pengumumanData: any) => {
+    try {
+        await createPengumuman(pengumumanData)
     } catch (error: any) {
         throw error;
     }
