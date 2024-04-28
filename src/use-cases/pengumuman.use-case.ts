@@ -1,6 +1,6 @@
-import { text } from "express";
 import { Pengumuman } from "../entities/Pengumuman";
 import { createPengumuman, getPengumumanAll, getPengumumanById } from "../repositories/pengumuman.repository";
+import { CreatePengumumanInput } from "../interface/createPengumuman.interface";
 
 export const getPengumumanAllUseCase = async () => {
 
@@ -28,7 +28,7 @@ export const getPengumumanByIdUseCase = async (id: string) => {
     }
 }
 
-export const createPengumumanUseCase = async (pengumumanData: any) => {
+export const createPengumumanUseCase = async (pengumumanData: CreatePengumumanInput) => {
 
     const pengumuman: Pengumuman = {
         title: pengumumanData.title,

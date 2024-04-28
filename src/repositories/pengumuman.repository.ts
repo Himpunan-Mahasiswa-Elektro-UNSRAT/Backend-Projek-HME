@@ -33,7 +33,7 @@ export const getPengumumanById = async (id: string): Promise<any> => {
     }
 }
 
-export const createPengumuman = async (pengumumanData: any): Promise<any> => {
+export const createPengumuman = async (pengumumanData: Pengumuman): Promise<any> => {
 
     try {
         const db = await connectToDatabase();
