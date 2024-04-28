@@ -17,6 +17,10 @@ export async function getPengumumanByIdController(req: any, res: any){
 
     const { id } = req.params;
 
+    if(!id){
+        return errorResponse(res, 400, 'ID tidak diberikan!')
+    }
+    
     try {
         const result = await getPengumumanByIdUseCase(id);
         successResponse(res, 'berhasil cok', result);
