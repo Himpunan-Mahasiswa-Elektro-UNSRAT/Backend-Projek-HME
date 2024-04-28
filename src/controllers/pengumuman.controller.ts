@@ -36,9 +36,7 @@ export async function getPengumumanByIdController(req: any, res: any){
 export async function createPengumumanController(req: any, res: any){
 
     const pengumumanData = req.body;
-    console.log(req.body)
-    console.log(pengumumanData);
-    
+
     if(!pengumumanData.title){
         return errorResponse(res, 400, 'Judul tidak diberikan!')
     }
