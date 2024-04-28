@@ -39,7 +39,7 @@ export const createPengumuman = async (pengumumanData: any): Promise<any> => {
         const db = await connectToDatabase();
         const collection = db.collection("Pengumuman");
 
-        console.log(pengumumanData);
+        pengumumanData.date = new Date(pengumumanData.date);
         await collection.insertOne(pengumumanData);
 
     } catch (error) {
