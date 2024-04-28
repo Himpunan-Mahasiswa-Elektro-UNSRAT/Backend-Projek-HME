@@ -1,3 +1,5 @@
+import { text } from "express";
+import { Pengumuman } from "../entities/Pengumuman";
 import { createPengumuman, getPengumumanAll, getPengumumanById } from "../repositories/pengumuman.repository";
 
 export const getPengumumanAllUseCase = async () => {
@@ -27,8 +29,17 @@ export const getPengumumanByIdUseCase = async (id: string) => {
 }
 
 export const createPengumumanUseCase = async (pengumumanData: any) => {
+
+    const pengumuman: Pengumuman = {
+        title: pengumumanData.title,
+        date: new Date(pengumumanData.date),
+        author: pengumumanData.author,
+        tag: pengumumanData.tag,
+        content: pengumumanData.content
+    }
+
     try {
-        await createPengumuman(pengumumanData)
+        await createPengumuman(pengumuman)
     } catch (error: any) {
         throw error;
     }

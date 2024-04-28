@@ -38,8 +38,6 @@ export const createPengumuman = async (pengumumanData: any): Promise<any> => {
     try {
         const db = await connectToDatabase();
         const collection = db.collection("Pengumuman");
-
-        pengumumanData.date = new Date(pengumumanData.date);
         await collection.insertOne(pengumumanData);
 
     } catch (error) {
