@@ -1,9 +1,9 @@
-import { getAllPengumuman, getPengumumanById } from "../repositories/pengumuman.repository";
+import { getPengumumanAll, getPengumumanById } from "../repositories/pengumuman.repository";
 
-export const getAllPengumumanUseCase = async () => {
+export const getPengumumanAllUseCase = async () => {
 
     try {
-        const result = await getAllPengumuman();
+        const result = await getPengumumanAll();
         return result;
     } catch (error: any) {
         throw error;

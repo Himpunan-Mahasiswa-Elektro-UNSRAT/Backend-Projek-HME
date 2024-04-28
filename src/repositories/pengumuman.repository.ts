@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { closeDatabaseConnection, connectToDatabase } from "../config/db";
 import { Pengumuman } from "../entities/Pengumuman";
 
-export const getAllPengumuman = async (): Promise<any> => {
+export const getPengumumanAll = async (): Promise<any> => {
     try {
         const db = await connectToDatabase();
         const collection = db.collection("Pengumuman");

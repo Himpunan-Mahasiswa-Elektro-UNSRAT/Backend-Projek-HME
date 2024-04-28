@@ -1,9 +1,9 @@
-import { getAllPengumumanUseCase, getPengumumanByIdUseCase } from "../use-cases/pengumuman.use-case";
+import { getPengumumanAllUseCase, getPengumumanByIdUseCase } from "../use-cases/pengumuman.use-case";
 import { successResponse, errorResponse } from "../utils/response";
 
-export async function getAllPengumumanController(req: any, res: any){
+export async function getPengumumanAllController(req: any, res: any){
     try {
-        const result = await getAllPengumumanUseCase();
+        const result = await getPengumumanAllUseCase();
         successResponse(res, 'berhasil cok', result);
         return;
     }
