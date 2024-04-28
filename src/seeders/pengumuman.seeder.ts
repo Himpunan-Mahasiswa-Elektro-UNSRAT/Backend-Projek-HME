@@ -11,7 +11,7 @@ async function pengumumanSeed(){
 
         const pengumumanCollection = db.collection<Pengumuman>('Pengumuman');
         await pengumumanCollection.deleteMany({});
-        
+
         const pengumuman = 
         [
             { 
@@ -101,6 +101,9 @@ async function pengumumanSeed(){
         console.log("success")
     } catch(error){
         console.log(error)
+    } finally {
+        await client.close();
+        console.log("done ngab")
     }
 }
 
