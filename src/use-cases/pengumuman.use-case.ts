@@ -20,7 +20,7 @@ export const getPengumumanByIdUseCase = async (id: string) => {
     try {
         const result = await getPengumumanById(id);
         if(!result){
-            throw new Error('ID tidak ditemukan!');
+            throw new Error('ID not found');
         }
         return result;
     } catch (error: any) {
