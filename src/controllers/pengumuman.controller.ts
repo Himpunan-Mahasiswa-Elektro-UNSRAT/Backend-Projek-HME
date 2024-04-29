@@ -19,7 +19,7 @@ export async function getPengumumanByIdController(req: any, res: any){
     const { id } = req.params;
 
     if(!id){
-        return errorResponse(res, 400, 'ID tidak diberikan!')
+        return errorResponse(res, 404, 'ID tidak diberikan!')
     }
 
     try {
