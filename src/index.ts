@@ -11,9 +11,7 @@ app.get("/", (req, res) => {
 	res.send("Hello, TypeScript with Express!");
 });
 
-app.use(body.json({
-	limit: '500kb'
-}));
+app.use(body.json());
 
 app.use('/pengumuman', pengumumanRoute);
 

@@ -2,7 +2,7 @@ import { createPengumumanUseCase, getPengumumanAllUseCase, getPengumumanByIdUseC
 import { successResponse, errorResponse } from "../utils/response";
 import { Request, Response } from "express";
 
-export async function getPengumumanAllController(res: Response){
+export async function getPengumumanAllController(req:any, res: any){
     try {
         const result = await getPengumumanAllUseCase();
         successResponse(res, 'berhasil cok', result);
@@ -14,7 +14,7 @@ export async function getPengumumanAllController(res: Response){
     }
 }
 
-export async function getPengumumanByIdController(req: Request, res: Response){
+export async function getPengumumanByIdController(req: any, res: any){
 
     const { id } = req.params;
 
@@ -65,4 +65,8 @@ export async function createPengumumanController(req: Request, res: Response){
         errorResponse(res, 400, error.message);
         return;
     }
+}
+
+export async function editPengumumanController(req: Request, res: Response){
+    return null;
 }
