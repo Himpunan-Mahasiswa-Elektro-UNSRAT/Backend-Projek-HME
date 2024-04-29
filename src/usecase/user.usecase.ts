@@ -29,5 +29,5 @@ export async function authenticateUser(email: string, password: string, user: Us
   console.log(secret);
 
   // Membuat token JWT dengan payload yang sudah disiapkan
-  return jwt.sign(payload, secret || 'ALBERTGAGALmoveon12322', { expiresIn: expired });
+  return jwt.sign(payload, secret || '', { expiresIn: expired });
 }

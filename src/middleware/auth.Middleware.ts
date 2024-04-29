@@ -6,6 +6,7 @@ import { User } from '../entities/user.models';
 import { UserRepository } from '../repositories/user.repo';
 import { MongoUserRepository } from '../repositories/user.repoImpl';
 import dotenv from "dotenv";
+import { successResponse, errorResponse } from "../utils/response";
 
 dotenv.config();
 
@@ -18,11 +19,13 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction) =
 
   // Periksa apakah token tersedia
   if (!token) {
-    return res.status(401).json({ message: 'Token tidak tersedia' });
+
+    return errorResponse(res, 401, 'Token tidak tersedia');
+
   }
 
   try {
-    const secret = process.env.JWT_SECRET || 'ALBERTGAGALmoveon12322';
+    const secret = process.env.JWT_SECRET || '';
     // Verifikasi token
     const decoded = jwt.verify(token.replace('Bearer ', ''), secret) as { email: string };
 
@@ -30,7 +33,8 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction) =
 
 
     if (!user) {
-      return res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+    
+      return errorResponse(res, 404, 'Pengguna tidak ditemukan');
     }
 
     // Menambahkan informasi pengguna ke dalam objek permintaan
@@ -38,9 +42,9 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction) =
 
     // Lanjutkan ke middleware atau pengendali berikutnya
     next();
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error verifying token:', error, );
-    return res.status(401).json({ message: 'Token tidak valid' });
+    return errorResponse(res, 401, error.message);
   }
 };
 

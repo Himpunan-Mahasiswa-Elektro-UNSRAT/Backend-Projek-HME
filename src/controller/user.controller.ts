@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { UserRepository } from '../repositories/user.repo';
 import { authenticateUser } from '../usecase/user.usecase';
 import { User } from '../entities/user.models';
+import { successResponse, errorResponse } from "../utils/response";
 
 export class AuthController {
   constructor(private readonly userRepository: UserRepository) {}
@@ -10,21 +11,22 @@ export class AuthController {
     const { email, password } = req.body;
     try {
       const user: User | null = await this.userRepository.findByEmail(email);
-      if (!user) {
-        res.status(404).json({ message: 'User not found' });
+      if (!user) {    
+         errorResponse(res, 404,'User not found' );
         return;
       }
       const token = await authenticateUser(email, password, user);
       if (!token) {
         // Ubah pesan menjadi "Password salah" jika token tidak tersedia
-        res.status(401).json({ message: 'Password salah' });
+        errorResponse(res, 401,'Wrong Password' );
         return;
       }
       res.json({ token });
       
-    } catch (error) {
+    } catch (error : any) {
       console.error('Login error:', error);
-      res.status(500).json({ message: 'Internal server error' });
+     
+      errorResponse(res, 500,error.message );
     }
   }
 }
@@ -38,7 +40,7 @@ export class UserController {
       const user: User | undefined = (req as any).user; // Menggunakan any untuk menyingkirkan kesalahan
 
       if (!user) {
-        res.status(404).json({ message: 'User not found' });
+        errorResponse(res, 404,'User not found' );
         return;
       }
       if(user.role == "anggota"){
@@ -51,12 +53,11 @@ export class UserController {
   
         });
       }
-     
-      // Kirim respons dengan data pengguna
   
-    } catch (error) {
+  
+    } catch (error : any) {
       console.error('Error getting user profile:', error);
-      res.status(500).json({ message: 'Internal server error' });
+      errorResponse(res, 500,error.message );
     }
   }
 }
