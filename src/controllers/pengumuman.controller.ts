@@ -53,7 +53,7 @@ export async function createPengumumanController(req: Request, res: Response){
     const pengumumanData = req.body;
 
     // cek panjang inputan
-    if(Object.keys(pengumumanData).length > 5 || Object.keys(pengumumanData.content).length > 2){
+    if(Object.keys(pengumumanData).length > 4 || Object.keys(pengumumanData.content).length > 2){
         return errorResponse(res, 400, 'Too many input!')
     }
 
