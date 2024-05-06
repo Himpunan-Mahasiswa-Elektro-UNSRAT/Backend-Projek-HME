@@ -53,16 +53,13 @@ export async function createPengumumanController(req: Request, res: Response){
     const pengumumanData = req.body;
 
     // cek panjang inputan
-    if(Object.keys(pengumumanData).length > 6 || Object.keys(pengumumanData.content).length > 2){
+    if(Object.keys(pengumumanData).length > 5 || Object.keys(pengumumanData.content).length > 2){
         return errorResponse(res, 400, 'Too many input!')
     }
 
     // cek ketersediaan field
     if(!pengumumanData.title){
         return errorResponse(res, 400, 'Judul tidak diberikan!')
-    }
-    if(!pengumumanData.date){
-        return errorResponse(res, 400, 'Tanggal tidak diberikan!')
     }
     if(!pengumumanData.author){
         return errorResponse(res, 400, 'Author tidak diberikan!')
@@ -81,7 +78,6 @@ export async function createPengumumanController(req: Request, res: Response){
     if(typeof pengumumanData.title !== 'string'){
         return errorResponse(res, 400, 'Title must be a string')
     }
-
     if(typeof pengumumanData.author !== 'string'){
         return errorResponse(res, 400, 'Author must be a string')
     }

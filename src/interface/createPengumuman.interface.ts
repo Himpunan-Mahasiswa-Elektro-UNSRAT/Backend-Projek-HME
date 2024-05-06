@@ -1,6 +1,5 @@
 export interface CreatePengumumanInput {
     title: string;
-    date: Date; 
     author: string;
     tag: string; 
     content: { 
