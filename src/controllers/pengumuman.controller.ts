@@ -41,6 +41,9 @@ export async function createPengumumanController(req: Request, res: Response){
 
     const pengumumanData = req.body;
 
+    if(!pengumumanData.uuid){
+        return errorResponse(res, 400, 'ID tidak diberikan!')
+    } 
     if(!pengumumanData.title){
         return errorResponse(res, 400, 'Judul tidak diberikan!')
     }
@@ -59,6 +62,8 @@ export async function createPengumumanController(req: Request, res: Response){
     if(!pengumumanData.content.text){
         return errorResponse(res, 400, 'Text tidak diberikan!')
     }
+
+    
     
     try {
         await createPengumumanUseCase(pengumumanData);

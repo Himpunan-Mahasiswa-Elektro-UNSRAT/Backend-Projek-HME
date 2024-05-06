@@ -1,6 +1,7 @@
 import { Pengumuman } from "../entities/Pengumuman";
 import { createPengumuman, getPengumumanAll, getPengumumanById } from "../repositories/pengumuman.repository";
 import { CreatePengumumanInput } from "../interface/createPengumuman.interface";
+import { v4 as uuidv4 } from "uuid";
 
 export const getPengumumanAllUseCase = async () => {
 
@@ -31,6 +32,7 @@ export const getPengumumanByIdUseCase = async (id: string) => {
 export const createPengumumanUseCase = async (pengumumanData: CreatePengumumanInput) => {
 
     const pengumuman: Pengumuman = {
+        uuid: uuidv4(),
         title: pengumumanData.title,
         date: new Date(pengumumanData.date),
         author: pengumumanData.author,

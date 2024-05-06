@@ -1,4 +1,5 @@
 export interface Pengumuman {
+    uuid: string;
     title: string;
     date: Date; 
     author: string;

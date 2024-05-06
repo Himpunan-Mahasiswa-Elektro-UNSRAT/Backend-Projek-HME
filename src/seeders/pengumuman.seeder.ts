@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 import { Pengumuman } from "../entities/Pengumuman";
-
+import { v4 as uuidv4 } from "uuid";
 async function pengumumanSeed(){
 
     const client = new MongoClient("mongodb://localhost:27017/hme-db");
@@ -14,7 +14,8 @@ async function pengumumanSeed(){
 
         const pengumuman = 
         [
-            { 
+            {
+                "uuid": uuidv4(), 
                 "title": "Seminar Teknologi Terbaru",
                 "date": new Date("2024-05-15"), 
                 "author": "HME",
@@ -25,6 +26,7 @@ async function pengumumanSeed(){
                 }
             },
             { 
+                "uuid": uuidv4(),
                 "title": "Pelatihan Kepemimpinan",
                 "date": new Date("2024-07-20"), 
                 "author": "Mahasiswa",
@@ -35,6 +37,7 @@ async function pengumumanSeed(){
                 }
             },
             { 
+                "uuid": uuidv4(),
                 "title": "Kumpul Bareng Alumni",
                 "date": new Date("2024-08-10"), 
                 "author": "Admin",
@@ -45,6 +48,7 @@ async function pengumumanSeed(){
                 }
             },
             { 
+                "uuid": uuidv4(),
                 "title": "Orientasi Penerimaan Anggota Baru",
                 "date": new Date("2024-09-01"), 
                 "author": "Admin",
@@ -54,7 +58,8 @@ async function pengumumanSeed(){
                     "text": "Orientasi untuk anggota baru angkatan 2024.", 
                 }
             },
-            { 
+            {
+                "uuid": uuidv4(), 
                 "title": "Workshop Pemrograman Dasar",
                 "date": new Date("2024-10-12"), 
                 "author": "HME",
@@ -65,6 +70,7 @@ async function pengumumanSeed(){
                 }
             },
             { 
+                "uuid": uuidv4(),
                 "title": "Wisuda Angkatan 2024",
                 "date": new Date("2024-12-20"), 
                 "author": "Admin",
@@ -75,6 +81,7 @@ async function pengumumanSeed(){
                 }
             },
             { 
+                "uuid": uuidv4(),
                 "title": "Pendaftaran Lomba Mahasiswa",
                 "date": new Date("2024-06-30"), 
                 "author": "Mahasiswa",
@@ -85,6 +92,7 @@ async function pengumumanSeed(){
                 }
             },
             { 
+                "uuid": uuidv4(),
                 "title": "Pelatihan Soft Skill",
                 "date": new Date("2024-07-25"), 
                 "author": "Admin",
