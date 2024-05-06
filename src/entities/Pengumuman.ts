@@ -1,7 +1,7 @@
 export interface Pengumuman {
     uuid: string;
     title: string;
-    date: Date; 
+    date: string; 
     author: string;
     tag: string; 
     content: { 

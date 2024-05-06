@@ -2,6 +2,7 @@ import { Pengumuman } from "../entities/Pengumuman";
 import { createPengumuman, getPengumumanAll, getPengumumanById } from "../repositories/pengumuman.repository";
 import { CreatePengumumanInput } from "../interface/createPengumuman.interface";
 import { v4 as uuidv4 } from "uuid";
+import { getFormattedDate } from "../lib/date";
 
 export const getPengumumanAllUseCase = async () => {
 
@@ -34,7 +35,7 @@ export const createPengumumanUseCase = async (pengumumanData: CreatePengumumanIn
     const pengumuman: Pengumuman = {
         uuid: uuidv4(),
         title: pengumumanData.title,
-        date: new Date(pengumumanData.date),
+        date: getFormattedDate(),
         author: pengumumanData.author,
         tag: pengumumanData.tag,
         content: pengumumanData.content
