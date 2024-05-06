@@ -17,7 +17,7 @@ async function pengumumanSeed(){
             {
                 "uuid": uuidv4(), 
                 "title": "Seminar Teknologi Terbaru",
-                "date": new Date("2024-05-15"), 
+                "date": "15-05-2024",
                 "author": "HME",
                 "tag": "HME", 
                 "content": { 
@@ -28,7 +28,7 @@ async function pengumumanSeed(){
             { 
                 "uuid": uuidv4(),
                 "title": "Pelatihan Kepemimpinan",
-                "date": new Date("2024-07-20"), 
+                "date": "20-07-2024", 
                 "author": "Mahasiswa",
                 "tag": "Mahasiswa", 
                 "content": { 
@@ -39,7 +39,7 @@ async function pengumumanSeed(){
             { 
                 "uuid": uuidv4(),
                 "title": "Kumpul Bareng Alumni",
-                "date": new Date("2024-08-10"), 
+                "date": "10-08-2024", 
                 "author": "Admin",
                 "tag": "Wisudawan", 
                 "content": { 
@@ -50,7 +50,7 @@ async function pengumumanSeed(){
             { 
                 "uuid": uuidv4(),
                 "title": "Orientasi Penerimaan Anggota Baru",
-                "date": new Date("2024-09-01"), 
+                "date": "01-09-2024", 
                 "author": "Admin",
                 "tag": "PAB", 
                 "content": { 
@@ -61,7 +61,7 @@ async function pengumumanSeed(){
             {
                 "uuid": uuidv4(), 
                 "title": "Workshop Pemrograman Dasar",
-                "date": new Date("2024-10-12"), 
+                "date": "12-10-2024", 
                 "author": "HME",
                 "tag": "HME", 
                 "content": { 
@@ -72,7 +72,7 @@ async function pengumumanSeed(){
             { 
                 "uuid": uuidv4(),
                 "title": "Wisuda Angkatan 2024",
-                "date": new Date("2024-12-20"), 
+                "date": "02-11-2024", 
                 "author": "Admin",
                 "tag": "Wisudawan", 
                 "content": { 
@@ -83,7 +83,7 @@ async function pengumumanSeed(){
             { 
                 "uuid": uuidv4(),
                 "title": "Pendaftaran Lomba Mahasiswa",
-                "date": new Date("2024-06-30"), 
+                "date": "22-02-2024", 
                 "author": "Mahasiswa",
                 "tag": "Mahasiswa", 
                 "content": { 
@@ -94,7 +94,7 @@ async function pengumumanSeed(){
             { 
                 "uuid": uuidv4(),
                 "title": "Pelatihan Soft Skill",
-                "date": new Date("2024-07-25"), 
+                "date": "17-08-2024", 
                 "author": "Admin",
                 "tag": "PAB", 
                 "content": { 
